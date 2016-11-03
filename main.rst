@@ -5,9 +5,9 @@
 
 .. include:: meta.rst
 
-====
-TODO_DOCUMENT_TITLE
-====
+=========================
+reStructuredText snippets
+=========================
 
 :Author: |AUTHORS|
 :Contact: |CONTACT|
