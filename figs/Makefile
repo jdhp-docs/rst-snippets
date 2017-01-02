@@ -3,7 +3,7 @@
 # PUT HERE THE LIST OF FILES TO MAKE
 # (E.G. "FILES_TO_MAKE = foo.png bar.svg baz.png")
 
-FILES_TO_MAKE = 
+FILES_TO_MAKE = plot2d.py.png
 
 ###############################################################################
 
