@@ -1,0 +1,49 @@
+\documentclass{minimal}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\begin{document}
+
+% Algorithmic commands:
+%  \STATE <text>
+%  \IF{<condition>} \STATE{<text>} \ENDIF
+%  \FOR{<condition>} \STATE{<text>} \ENDFOR
+%  \FOR{<condition> \TO <condition> } \STATE{<text>} \ENDFOR
+%  \FORALL{<condition>} \STATE{<text>} \ENDFOR
+%  \WHILE{<condition>} \STATE{<text>} \ENDWHILE
+%  \REPEAT \STATE{<text>} \UNTIL{<condition>}
+%  \LOOP \STATE{<text>} \ENDLOOP
+%  \REQUIRE <text>
+%  \ENSURE <text>
+%  \RETURN <text>
+%  \PRINT <text>
+%  \COMMENT{<text>}
+%  \AND, \OR, \XOR, \NOT, \TO, \TRUE, \FALSE
+\begin{algorithmic}
+    \REQUIRE ~\\
+             $\langle \mathcal{S}, \mathcal{A}, T, R \rangle$, an MDP\\
+             $\gamma$, the discount factor\\
+             $\epsilon$, the maximum error allowed in the utility of any state in an iteration
+    %\ENSURE ~\\
+    %        $U, U'$, vector of utilities for states in $\mathcal{S}$, initially zero\\
+    %        $\delta$, the maximum change in the utility of any state in an iteration\\
+    \STATE \hspace{-1em}\textbf{Local variables:}\\
+            $U, U'$, vector of utilities for states in $\mathcal{S}$, initially zero\\
+            $\delta$, the maximum change in the utility of any state in an iteration\\
+            ~
+
+    \REPEAT
+        \STATE $U \leftarrow U'$
+        \STATE $\delta \leftarrow 0$
+        \FORALL{$s \in \mathcal{S}$}
+            \STATE $U'[s] \leftarrow R[s] + \gamma \max_a \sum_{s'} T(s,a,s') U[s']$
+            \IF{$|U'[s] - U[s]| > \delta$}
+                \STATE $\delta \leftarrow |U'[s] - U[s]|$
+            \ENDIF
+        \ENDFOR
+    \UNTIL{$\delta < \epsilon(1-\gamma)/\gamma$}
+    ~
+
+    \RETURN $U$
+\end{algorithmic}
+
+\end{document}

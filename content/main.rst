@@ -219,7 +219,7 @@ PNG images
 ----------
 
 .. figure:: figs/plot2d.py.png
-   :alt: Logo
+   :alt: Plot
 
 Maths and LaTeX
 ===============
@@ -380,6 +380,25 @@ mathfrak
     \mathfrak{ABCDEFGHIJKLMNOPQRSTUVWXYZ}
 
     \mathfrak{abcdefghijklmnopqrstuvwxyz}
+
+Algorithms
+==========
+
+PNG
+---
+
+.. figure:: figs/algo.tex.png
+   :align: center
+   :width: 600px
+   :alt: Plot
+
+SVG
+---
+
+.. figure:: figs/algo.tex.svg
+   :align: center
+   :width: 600px
+   :alt: Plot
 
 Source code
 ===========
