@@ -226,13 +226,23 @@ Maths and LaTeX
 
 .. TODO: fails with PDF generator
 
+See: http://www.sphinx-doc.org/en/1.5.1/ext/math.html
+
 Basics
 ------
 
 See http://sphinx-doc.org/latest/ext/math.html
 
+Inline maths with :math:`\LaTeX` : :math:`x \lt y`.
+
 When :math:`a \ne 0`, there are two solutions to :math:`ax^2 + bx + c = 0` and they are
-:math:`x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}.`
+:math:`x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}`.
+
+One line math block:
+
+.. math:: n_{\mathrm{offset}} = \sum_{k=0}^{N-1} s_k n_k
+
+Multiple lines math block:
 
 .. math::
     
@@ -240,20 +250,27 @@ When :math:`a \ne 0`, there are two solutions to :math:`ax^2 + bx + c = 0` and t
 
     (a - b)^2 = a^2 - 2ab + b^2
 
-.. math::
-
-    n_{\mathrm{offset}} = \sum_{k=0}^{N-1} s_k n_k
-
-Inline maths with :math:`\LaTeX` : :math:`x \lt y`
-
-.. math::
-
     \int_a^b f(x)dx
 
     V(x) = \max_{a \in \Gamma (x) } \{ F(x,a) + \beta V(T(x,a)) \}
 
+Multiple lines aligned (on `&`):
+
+.. math::
+
+    \mbox{Expectation of N} & = \sum_{i=1}^{n} \mathbb{E}(Z_i) \\
+                            & = \sum_{i=1}^{n} \frac{\gamma}{d^{\beta/2}} \frac{ c(d)^\beta }{i^{\alpha\beta}} \\
+                            & = \frac{\gamma}{d^{\beta/2}} c(d)^\beta \sum_{i=1}^{n} \frac{1}{i^{\alpha\beta}} \\
+                            & = z
+
 Equation array
 --------------
+
+.. note::
+
+    Rst2html wrap all math blocks in the `equation*` Latex environment.
+    Unlike sphinx, rst2html does't implement the `:nowrap:` option for `:math:` to use others Latex environments than `equation*`.
+    See http://docutils.sourceforge.net/docs/dev/todo.html#math-markup and http://docutils.sourceforge.net/docs/ref/doctree.html#math-block.
 
 .. math::
 
@@ -263,6 +280,15 @@ Equation array
                                 & = & \frac{\gamma}{d^{\beta/2}} c(d)^\beta \sum_{i=1}^{n} \frac{1}{i^{\alpha\beta}} \\
                                 & = & z
     \end{eqnarray*}
+
+A workaround for eqnarray is simply:
+
+.. math::
+
+    \mbox{Expectation of N} & = \sum_{i=1}^{n} \mathbb{E}(Z_i) \\
+                            & = \sum_{i=1}^{n} \frac{\gamma}{d^{\beta/2}} \frac{ c(d)^\beta }{i^{\alpha\beta}} \\
+                            & = \frac{\gamma}{d^{\beta/2}} c(d)^\beta \sum_{i=1}^{n} \frac{1}{i^{\alpha\beta}} \\
+                            & = z
 
 Arrays
 ------
@@ -296,6 +322,12 @@ Matrices
 Mathematical programming
 ------------------------
 
+.. note::
+
+    Rst2html wrap all math blocks in the `equation*` Latex environment.
+    Unlike sphinx, rst2html does't implement the `:nowrap:` option for `:math:` to use others Latex environments than `equation*`.
+    See http://docutils.sourceforge.net/docs/dev/todo.html#math-markup and http://docutils.sourceforge.net/docs/ref/doctree.html#math-block.
+
 .. math::
 
     \begin{align}
@@ -304,6 +336,15 @@ Mathematical programming
                     & \quad   x_1 + 2 x_2 \leq 8 \label{constraint2}\\
                     & \quad   x_1, x_2 \geq 0    \notag
     \end{align}
+
+A workaround for align is simply:
+
+.. math::
+
+    \max        & \quad z = 4 x_1 + 7 x_2 \\
+    \text{s.t.} & \quad 3 x_1 + 5 x_2 \leq 6 \\
+                & \quad   x_1 + 2 x_2 \leq 8 \\
+                & \quad   x_1, x_2 \geq 0
 
 Systems of equation array
 -------------------------
